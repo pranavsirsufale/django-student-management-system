@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+ <!---------- D E V E L O P E D   B Y   P R A N A V   S I R S U F A L E ----------------->
+            <div class="content container-fluid">
+               <div class="page-header">
+                  <div class="row align-items-center">
+                     <div class="col">
+                        <h3 class="page-title"> View Attendance </h3>
+                        <ul class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="subjects.html"> Attendance </a></li>
+                           <li class="breadcrumb-item active"> View Attendance </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+                {% include 'includes/messages.html' %}
+                {% if action is None %}
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="card">
+                        <div class="card-body">
+                           <form action="?action=view_attendance" method="POST" >
+                               {% csrf_token %}
+                              <div class="row">
+                                 <div class="col-12">
+                                    <h5 class="form-title"><span> Take Attendance </span></h5>
+                                 </div>
+
+                                  <div class="form-group">
+                                               <label> Subject </label>
+                                               <select class="form-control"  name="subject_id" required >
+                                                  <option>Select Subject</option>
+                                                   {% for i in subject %}
+                                                  <option value="{{i.id}}" >{{i.name}}</option>
+                                                    {% endfor %}
+                                               </select>
+                                            </div>
+                                 <div class="col-12 col-sm-6">
+                                            <div class="form-group">
+                                               <label> Session Year </label>
+                                               <select class="form-control"  name="session_year_id" required >
+                                                  <option> Select Session </option>
+                                                   {% for i in session_year %}
+                                                  <option value="{{i.id}}" >{{i.session_start}}&nbsp; To &nbsp;{{i.session_end}}</option>
+                                                    {% endfor %}
+                                               </select>
+                                            </div>
+                                 </div>
+                                  <div class="col-12 col-sm-6 form-group">
+                                           <label> Attendance Date</label>
+                                       <input type="date" class="form-control" name="attendance_date" required>
+
+                                 </div>
+                                 <div class="col-12">
+                                    <button type="submit" class="btn btn-primary"> Show Students </button>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+                {% else %}
+
+                {% endif %}
+            </div>
+ <!---------- D E V E L O P E D   B Y   P R A N A V   S I R S U F A L E ----------------->
+{% endblock %}

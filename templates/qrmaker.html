@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+ <!---------- D E V E L O P E D   B Y   P R A N A V   S I R S U F A L E ----------------->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this is qrmaker</title>
+</head>
+<body>
+<h1> Welcome to Pranav's qrcode generator </h1>
+<h2> Please Enter details below ... </h2>
+<form action="{% url 'showqr' %}" enctype="multipart/form-data" method="POST" >
+{% csrf_token %}
+    <div class="get-input" >
+        <label for='object_name' >object_name</label>
+        <input type="text" name="object_name" id="object_name" placeholder="Enter your object Name">
+        <br>
+        <br>
+        <label for="link" > link </label>
+        <input type="text" name="link" id="link" placeholder="Enter the link here ">
+        <br><br>
+        <button type="submit">Submit</button>
+    </div>
+
+</form>
+</body>
+ <!---------- D E V E L O P E D   B Y   P R A N A V   S I R S U F A L E ----------------->
+</html>
+ <!---------- D E V E L O P E D   B Y   P R A N A V   S I R S U F A L E ----------------->

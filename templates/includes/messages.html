@@ -1,0 +1,51 @@
+
+<!--                                            danger message template    -->
+                                               {% if messages %}
+                                               {% for message in messages %}
+                                                 {% if message.tags == 'error' %}
+                                                 <div class="aleart alert-danger alert-dismissible fade show" role="alert">
+                                                     {{ message }}
+                                                     <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                                         <span aria-hidden="true">&times;</span>
+                                                     </button>
+                                                 </div>
+                                                 {% endif %}
+                                                 {% endfor %}
+                                                 {% endif %}
+
+
+<!--                                               warning message template                                             -->
+
+                                                        {% if messages %}
+                                                {% for message in messages %}
+                                                {% if message.tags == 'warning' %}
+
+                                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                     <strong>Warning !</strong> {{ message }}
+                                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                       <span aria-hidden="true">&times;</span>
+                                                     </button>
+                                                </div>
+
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% endif %}
+
+<!--                                  success message -->
+
+                                                                {% if messages %}
+                                                        {% for message in messages %}
+                                                        {% if message.tags == 'success' %}
+
+                                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                             <strong>Success! </strong> {{ message }}
+                                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                               <span aria-hidden="true">&times;</span>
+                                                             </button>
+                                                        </div>
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                        {% endif %}
+
+
+

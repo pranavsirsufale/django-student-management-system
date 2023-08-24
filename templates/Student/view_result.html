@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+ <!---------- D E V E L O P E D   B Y   P R A N A V   S I R S U F A L E ----------------->
+<div class="content container-fluid">
+               <div class="page-header">
+                  <div class="row align-items-center">
+                     <div class="col">
+                        <h3 class="page-title"> Result </h3>
+                        <ul class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                           <li class="breadcrumb-item active"> View Result </li>
+                        </ul>
+                     </div>
+                     <div class="col-auto text-right float-right ml-auto">
+                        <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a>
+                        <a href="{% url 'add_student' %}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                                       {% include 'includes/messages.html' %}
+                  <div class="col-sm-12">
+                     <div class="card card-table">
+                        <div class="card-body">
+                           <div class="table-responsive">
+                              <table id="table_id" class="table table-hover table-center mb-0 ">
+                                 <thead>
+                                    <tr>
+                                       <th>ID</th>
+                                       <th>Subject Name</th>
+                                        <th>Assignment Mark</th>
+                                        <th>Exam Mark</th>
+                                       <th class="text-right"> Status </th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                {% for i in result %}
+                                    <tr>
+                                       <td>{{i.id}}</td>
+                                       <td>{{i.subject_id.name}}</td>
+                                         <td>{{i.assignment_mark}}</td>
+                                       <td>{{i.exam_mark}}</td>
+                                       <td class="text-right"  >
+                                          {% if i.mark <= 50 %}
+                                           <span class="badge badge-success"  > FAIL </span>
+                                           {% elif i.mark > 49 %}
+                                           <span class="badge badge-success" > PASS </span>
+                                           {% else %}
+                                           <span > {{mark}}</span>
+
+                                           {% endif %}
+
+                                       </td>
+                                    </tr>
+                                   {% endfor %}
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+ <!---------- D E V E L O P E D   B Y   P R A N A V   S I R S U F A L E ----------------->
+{% endblock %}
